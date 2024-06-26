@@ -7,4 +7,8 @@
 
 void print_array(int a[], int size);
 
+int compare_arrays(int arr1[], int size1, int arr2[], int size2);
+
+void testArray(int arr[], int size, const char *description, int expected[], int expected_size);
+
 #endif //ALGORITHMS_UTIL_H

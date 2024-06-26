@@ -2,7 +2,6 @@
 // Created by wwinter on 2024/6/24.
 //
 #include "../common/util.h"
-#include "stdio.h"
 
 void
 merge(int a[], int p, int mid, int q) {
@@ -54,22 +53,41 @@ mergesort(int a[], int p, int q) {
     }
 }
 
-void
-mergesort_test() {
-    int a1[9] = {1};
-    int a2[9] = {1, 5, 2, 7, 8, 5, 3, 2, 7};
-    printf("merge before:\n");
-    printf("a1: ");
-    print_array(a1, 1);
-    printf("a2: ");
-    print_array(a2, 9);
+void mergesort_test() {
+    // 测试各种数组情况
+    int arr1[] = {};
+    int expected1[] = {};
+    int size1 = sizeof(arr1) / sizeof(arr1[0]);
+    mergesort(arr1, 0, size1 - 1);
+    testArray(arr1, size1, "空数组排序结果", expected1, sizeof(expected1) / sizeof(expected1[0]));
 
-    mergesort(a1, 0, 0);
-    mergesort(a2, 0, 8);
+    int arr2[] = {5};
+    int expected2[] = {5};
+    int size2 = sizeof(arr2) / sizeof(arr2[0]);
+    mergesort(arr2, 0, size2 - 1);
+    testArray(arr2, size2, "只有一个元素的数组排序结果", expected2, sizeof(expected2) / sizeof(expected2[0]));
 
-    printf("merge after:\n");
-    printf("a1: ");
-    print_array(a1, 1);
-    printf("a2: ");
-    print_array(a2, 9);
+    int arr3[] = {1, 2, 3, 4, 5};
+    int expected3[] = {1, 2, 3, 4, 5};
+    int size3 = sizeof(arr3) / sizeof(arr3[0]);
+    mergesort(arr3, 0, size3 - 1);
+    testArray(arr3, size3, "已经排序的数组排序结果", expected3, sizeof(expected3) / sizeof(expected3[0]));
+
+    int arr4[] = {5, 4, 3, 2, 1};
+    int expected4[] = {1, 2, 3, 4, 5};
+    int size4 = sizeof(arr4) / sizeof(arr4[0]);
+    mergesort(arr4, 0, size4 - 1);
+    testArray(arr4, size4, "倒序排序的数组排序结果", expected4, sizeof(expected4) / sizeof(expected4[0]));
+
+    int arr5[] = {3, 1, 2, 3, 1};
+    int expected5[] = {1, 1, 2, 3, 3};
+    int size5 = sizeof(arr5) / sizeof(arr5[0]);
+    mergesort(arr5, 0, size5 - 1);
+    testArray(arr5, size5, "包含重复元素的数组排序结果", expected5, sizeof(expected5) / sizeof(expected5[0]));
+
+    int arr6[] = {3, 5, 1, 4, 2};
+    int expected6[] = {1, 2, 3, 4, 5};
+    int size6 = sizeof(arr6) / sizeof(arr6[0]);
+    mergesort(arr6, 0, size6 - 1);
+    testArray(arr6, size6, "一般情况的数组排序结果", expected6, sizeof(expected6) / sizeof(expected6[0]));
 }

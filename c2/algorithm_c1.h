@@ -7,5 +7,8 @@
 
 void mergesort_test();
 void insertsort_test();
+void insertsort2_test();
+void bisearch_test();
+void sumeqx_test();
 
 #endif //ALGORITHMS_ALGORITHM_C1_H

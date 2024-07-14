@@ -6,7 +6,10 @@ CFLAGS = -Wall -Wextra
 SRCS = main.c \
        common/util.c \
        c1/insertsort.c \
-       c1/mergesort.c
+       c1/insertsort2.c \
+       c1/mergesort.c \
+       c1/bisearch.c \
+       c1/sumeqx.c
 
 OBJS = $(SRCS:.c=.o)
 DEPS = common/util.h \
@@ -36,6 +39,9 @@ endef
 # 使用模板定义运行目标
 $(eval $(call RUN_TEMPLATE,C2_2_3_2))
 $(eval $(call RUN_TEMPLATE,C2_2_3_4))
+$(eval $(call RUN_TEMPLATE,C2_2_3_5))
+$(eval $(call RUN_TEMPLATE,C2_2_3_6))
+$(eval $(call RUN_TEMPLATE,C2_2_3_7))
 
 # 可以继续添加更多的运行目标
 # $(eval $(call RUN_TEMPLATE,another_target))

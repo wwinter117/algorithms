@@ -7,20 +7,15 @@
 // 每次循环开始时，前i个元素由原来数组中元素组成，并且已经排序
 // 证明循环不变式：初始化、保持、终止
 //
-void
-insertsort(int arr[], int size) {
-    if (size <= 1) {
-        return;
-    }
-    int value;
+void insert_sort(int *a, int size) {
     for (int i = 1; i < size; ++i) {
-        value = arr[i];
+        int value = a[i];
         int j = i - 1;
-        while (arr[j] > value && j >= 0) {
-            arr[j + 1] = arr[j];
+        while (j >= 0 && a[j] > value) {
+            a[j + 1] = a[j];
             --j;
         }
-        arr[j + 1] = value;
+        a[j + 1] = value;
     }
 }
 
